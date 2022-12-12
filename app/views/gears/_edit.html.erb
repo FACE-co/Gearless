@@ -1,0 +1,47 @@
+<div class="container container-small">
+  <%= simple_form_for [@gear] do |form| %>
+    <% if gear.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(gear.errors.count, "error") %> prohibited this gear from being saved:</h2>
+        <ul>
+          <% gear.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="my-2">
+      <%= form.input :gear_type, as: :select, collection: %w(Hiking Rock-Climbing Cooking Sleeping Kayak Navigation Shelter Sleeping-Bags Hydration Navigation First-Aid Survival Illumination Repair-Kits), prompt: 'Select Gear Type', label: false %>
+    </div>
+
+    <div class="my-2">
+      <%= form.input :gear_name, class: "" %>
+    </div>
+
+    <div class="my-2">
+      <%= form.input :total_occupancy, class: "" %>
+    </div>
+
+    <div class="my-2">
+      <%= form.input :summary, class: "" %>
+    </div>
+
+    <div class="my-2">
+      <%= form.input :address, class: "" %>
+    </div>
+
+    <div class="my-2">
+      <%= form.input :price, class: "" %>
+    </div>
+
+    <div class="my-2">
+      <%= form.input :photos, as: :file, input_html: { multiple: true }%>
+    </div>
+
+    <div class="my-4 inline btn-submit d-flex justify-content-between">
+      <%= link_to "Go Back", user_my_gear_path(@user), class: "btn-no-border-right btn btn-outline-dark w-100" %>
+      <%= form.submit class: "btn btn-outline-dark w-100" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,41 @@
+<h1>Reservations</h1>
+
+<ul>
+  <% @rentals.each do |r| %>
+    <% if r.status != 'cancelled' %>
+      <li>
+        <%= " Booking by #{r.user.first_name.capitalize} #{r.user.last_name.capitalize} for #{r.gear.gear_type}, #{r.gear.summary}.\n
+         Arrival: #{r.start_date}, Return: #{r.end_date}. Status: #{r.status}" %>
+        <%= link_to rental_path(r, rental: { status: 'confirmed' }),
+          class: 'btn btn-light btn-sm border text-right',
+          data: { turbo_method: :patch, turbo_confirm: "Are you sure you want to confirm this rental?" } do %>
+          <i class="fa-regular fa-pen-to-square"></i>
+        <% end %>
+          <%= link_to rental_path(r, rental: { status: 'cancelled' }),
+            class: 'btn btn-light btn-sm border text-right',
+            data: { turbo_method: :patch, turbo_confirm: "Are you sure you want to cancel this rental?" } do %>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
+      </li>
+    <% end %>
+
+  <% end %>
+
+  <p>Cancelled rentals</p>
+  <% @rentals.each do |r| %>
+    <% if r.status == 'cancelled' %>
+      <li>
+        <%= r.start_date %>
+        <%= r.end_date %>
+        <%= r.price %>
+        <%= r.total %>
+        <%= r.gear.summary %>
+        <%= r.status %>
+    <% end %>
+  <% end %>
+
+
+
+    <%# <%= link_to 'cancel', rental_path(@rental, rental: { status: 'cancelled' }), class: 'btn btn-primary shrink-0 mr-4', data: { turbo_method: :patch } %>
+     <%# # data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete this rental?"}, %>
+</ul>

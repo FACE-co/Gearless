@@ -1,0 +1,28 @@
+	<% gears.each do |gear| %>
+    <div class="col-3">
+      <div class="product-card">
+        <a href= <%= gear_path(gear) %> target="_top">
+        <div class="product-tumb">
+          <% if gear.photos.present? %>
+            <p class="hover-text">See More</p>
+            <%= cl_image_tag gear.photos.first.key, crop: :fill %>
+          <% else %>
+            <img src="https://images.unsplash.com/photo-1628087235616-4e146afcd061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80" alt="">
+          <% end %>
+        </div>
+        <div class="product-details">
+          <div class="flex-container">
+            <div class="product-catagory"><%= gear.gear_type %></div>
+            <div class="product-rating"><span>★</span> <%= rand(3.9..5.0).round(1) %></div>
+          </div>
+          <h4 class="line-clamp"><%= gear.gear_name %></h4>
+          <p class="product-summary"><%= gear.summary %></p>
+          <p>Capacity: <%= gear.total_occupancy %></p>
+          <div class="product-bottom-details">
+            <div class="product-price">$<%= gear.price.round %> <small> per night</small></div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+<% end %>

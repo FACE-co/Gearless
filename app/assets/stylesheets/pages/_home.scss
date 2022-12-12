@@ -1,0 +1,109 @@
+// Specific CSS for your home-page
+.full-page {
+  height: 100%;
+  margin-bottom: -2px;
+
+  .hero-container {
+    inset: 0px;
+    height: 100vh;
+    display: flex;
+    z-index: -100;
+    overflow: hidden;
+    position: absolute;
+    flex-direction: column;
+
+    .hero-image {
+      object-position: unset;
+      height: 100vh;
+      object-fit: cover;
+    }
+  }
+
+  .hero-text-container {
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    // margin-top: 100px;
+    // margin-bottom: -100px;
+
+    .hero-text {
+      font-family: $body-font;
+      text-transform: uppercase;
+      font-size: 60px;
+      text-decoration: none;
+      color: rgb(244,243,216);
+      text-shadow: 1px 1px 1px black;
+    }
+
+    .secondary-text {
+      font-family: $body-font;
+      text-transform: uppercase;
+      font-size: 30px;
+      text-decoration: none;
+      color: rgb(244,243,216);
+      text-shadow: 1px 1px 1px black;;
+    }
+
+    .scroll-container {
+      position: absolute;
+      bottom: 20px;
+      color: white;
+
+      p {
+        font-family: $body-font;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: white;
+        text-shadow: 1px 1px 1px black;
+        margin: -5px;
+      }
+      img {
+        filter: invert(1);
+      }
+    }
+  }
+}
+
+.gear-container {
+
+
+  .text-container {
+    text-align: center;
+  }
+
+  .body-text {
+    font-family: $logo-font;
+    text-transform: uppercase;
+    font-size: 50px;
+    color: #06270A;
+
+  }
+
+  .form-transparent {
+    width: 70%;
+    // padding: 10px 0;
+    font-size: 23px;
+    color: #2E5E55;
+    border: none;
+    margin-left: 140px;
+    border-bottom: 2px solid #06270A;
+    outline: none;
+    background: transparent;
+    align-self: flex-end;
+    margin-left: 140px;
+    align-self: end;
+    padding-bottom: 12px;
+  }
+
+  .form-transparent:focus {
+    color: $primary-colors-dark;
+  }
+
+  .search-form-container {
+    padding-bottom: 50px;
+    width: 60%
+  }
+}

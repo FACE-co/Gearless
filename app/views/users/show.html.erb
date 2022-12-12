@@ -1,0 +1,42 @@
+<div class="container d-flex justify-content-between">
+  <div class="user-info d-flex flex-column justify-content-between">
+
+    <%# user name and avatar %>
+    <div class="d-flex flex-column">
+      <div class="section-div pb-2">
+        <h3><%= "Hi, I'm #{@user.first_name.capitalize}" %></h3>
+        <% if current_user.present? && current_user.avatar.present? %>
+          <%= cl_image_tag current_user.avatar.key, crop: :fill, class:"avatar-large" %>
+        <% else %>
+          <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" alt="mdo" width="32" height="32" class="rounded-circle">
+        <% end %>
+      </div>
+        <%# user location TO ADD TO USER MODEL %>
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-location-dot"></i>
+          <p class="mb-0 mx-2"> <%= @user.location %> </p>
+        </div>
+    </div>
+
+    <div>
+      <h5>About me:</h5>
+      <p><%= @user.description %></p>
+    </div>
+
+    <% if @user != current_user %>
+      <%= link_to  'Start Chat', user_messages_path(@user), class: "button" %>
+    <% end %>
+  </div>
+
+  <div class="listings">
+    <h3><%= "#{@user.first_name.capitalize}'s listings:" %></h3>
+    <div>
+      <% if @gears.empty? %>
+        <p> <%= "#{@user.first_name.capitalize} does not have any listings yet." %> </p>
+      <% else %>
+        <%= render "components/gear_list", gears: @gears %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

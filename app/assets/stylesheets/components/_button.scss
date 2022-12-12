@@ -1,0 +1,38 @@
+.button-green {
+  width: fit-content;
+  border: 2px solid $primary-colors-dark;
+  padding: 10px 40px;
+  font-family: $body-font;
+  color: $primary-colors-dark;
+  font-size: 23px;
+  text-decoration: none;
+  transition: ease-in-out 0.2s;
+  background-color: $primary-color-light;
+  text-align: center;
+}
+
+.button-green:hover {
+  background-color: $primary-colors-dark;
+  color: rgb(244,243,216);
+}
+
+
+.button-yellow {
+  width: fit-content;
+  border: 2px solid #F4F3D8;
+  padding: 10px 40px;
+  font-family: $body-font;
+  text-transform: uppercase;
+  color: rgb(244,243,216);
+  text-shadow: 1px 1px 2px black;
+  font-size: 23px;
+  text-decoration: none;
+  transition: ease-in-out 0.2s;
+
+}
+
+.button-yellow:hover {
+  background-color: #06270A;
+  border: 2px dashed #F4F3D8;
+  color: rgb(244,243,216);
+}

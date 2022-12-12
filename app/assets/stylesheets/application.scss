@@ -1,0 +1,137 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome";
+@import "star-rating.js/dist/star-rating.css";
+@import "flatpickr/dist/themes/airbnb";
+
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+@import "pages/user_profile";
+
+body {
+  background-color: $primary-color-light;
+}
+
+.profile-pic {
+  border-radius: 50%;
+}
+
+.messages {
+  height: auto;
+  min-height: calc(100% - 93px);
+  max-height: calc(100% - 93px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 735px) {
+  .messages {
+    max-height: calc(100% - 105px);
+  }
+}
+.messages::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+.messages::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.messages ul li {
+  display: inline-block;
+  clear: both;
+  float: left;
+  margin: 15px 15px 5px 15px;
+  width: calc(100% - 25px);
+  font-size: 0.9em;
+}
+.messages ul li:nth-last-child(1) {
+  margin-bottom: 20px;
+}
+.messages ul li.sent img {
+  margin: 6px 8px 0 0;
+}
+.messages ul li.sent p {
+  background: #435f7a;
+  color: #f5f5f5;
+}
+.messages ul li.replies img {
+  float: right;
+  margin: 6px 0 0 8px;
+}
+.messages ul li.replies p {
+  background: #d1d1d1;
+  float: right;
+}
+.messages ul li img {
+  width: 22px;
+  border-radius: 50%;
+  float: left;
+}
+.messages ul li p {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 205px;
+  line-height: 130%;
+}
+@media screen and (min-width: 735px) {
+  .messages ul li p {
+    max-width: 300px;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .container-small {
+      width: 300px;
+  }
+  .container-large {
+      width: 970px;
+  }
+}
+@media (min-width: 992px) {
+  .container-small {
+      width: 500px;
+  }
+  .container-large {
+      width: 1170px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-small {
+      width: 700px;
+  }
+  .container-large {
+      width: 1500px;
+  }
+}
+
+.container-small, .container-large {
+  max-width: 100%;
+}
+
+.btn-submit {
+  margin: auto;
+}
+
+.btn-no-border-right {
+  border-right: 0;
+}
+
+.scroll-box {
+  text-decoration: none;
+}
+
+.anchor-section2 {
+  top: -250px;
+}

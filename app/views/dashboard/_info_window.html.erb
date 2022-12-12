@@ -1,0 +1,3 @@
+Gear name: <a class="map-pop-up-text" href="<%= gear_path(gear) %>"><%= gear.gear_name %></a><br>
+Gear type: <%= gear.gear_type %><br>
+Host name: <a class="map-pop-up-text" href="<%= user_path(gear.user_id) %>"><%= User.find(gear.user_id).first_name %> <%= User.find(gear.user_id).last_name %></a>

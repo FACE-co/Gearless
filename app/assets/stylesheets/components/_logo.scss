@@ -1,0 +1,11 @@
+.logo-text {
+  font-family: $logo-font;
+  text-transform: uppercase;
+  font-size: 50px;
+  text-decoration: none;
+  color: black;
+  text-shadow: 2px 2px 2px #949494;;
+  &:hover {
+    color: black;
+  }
+}

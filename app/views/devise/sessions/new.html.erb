@@ -1,0 +1,26 @@
+<div class="container container-small">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+    data: {turbo: false}) do |f| %>
+    <div class="form-inputs">
+      <div class="my-2">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email", class: 'form-transparent' }
+                    %>
+      </div>
+      <div class="my-2">
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password", class: 'form-transparent' } %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+    </div>
+
+      <div class="form-actions mb-3">
+        <%= f.button :submit, "Log in", class: "button-green w-100" %>
+      </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

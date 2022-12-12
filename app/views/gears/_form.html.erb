@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+<h2 class="text-center text-main">Create My Gear</h2>
+<div class="col-6">
+<%= simple_form_for [@user, @gear] do |form| %>
+  <% if gear.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(gear.errors.count, "error") %> prohibited this gear from being saved:</h2>
+      <ul>
+        <% gear.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form.input :gear_type,
+                collection: %w(Hiking Rock-Climbing Cooking Sleeping Kayak Navigation Shelter Sleeping-Bags Hydration Navigation First-Aid Survival Illumination Repair-Kits) ,
+                input_html: { class: 'form-transparent'} %>
+  <%= form.input :gear_name,
+                  input_html: { class: 'form-transparent'} %>
+  <%= form.input :total_occupancy,
+                collection: 1..20,
+                input_html: { class: 'form-transparent'}
+                %>
+  <%= form.input :summary,
+                  input_html: { class: 'form-transparent'}
+                  %>
+  <%= form.input :address,
+                input_html: { class: 'form-transparent'}
+                 %>
+  <%= form.input :price,
+                  input_html: { class: 'form-transparent'}
+                %>
+  <%= form.input :photos, as: :file,
+                  input_html: { multiple: true, class: 'form-transparent' } %>
+  <%= form.submit class: "button-green w-100" %>
+<% end %>
+</div>
+

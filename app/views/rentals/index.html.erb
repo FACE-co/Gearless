@@ -1,0 +1,43 @@
+<h2 class="text-center">My Rentals</h2>
+
+<div class="m-5">
+<h5>Pending Rentals</h5>
+  <div class="row">
+    <%= render "components/rental", rentals: @pending%>
+    <% if @pending==[] %>
+    <%= "No booking yet, book your first gear!" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="m-5">
+<h5>Confirmed Rentals</h5>
+  <div class="row">
+    <%= render "components/rental", rentals: @confirmed%>
+    <% if @confirmed==[] %>
+    <%= "No confirmed booking" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="m-5">
+<h5>Completed Rentals</h5>
+  <div class="row">
+    <%= render "components/rental", rentals: @completed%>
+    <% if @completed==[] %>
+    <%= "Go and finish your first booking!" %>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<div class="m-5">
+<h5>Cancelled Rentals</h5>
+  <div class="row">
+    <%= render "components/rental", rentals: @cancelled%>
+    <% if @cancelled == [] %>
+    <%= "Nothing here" %>
+    <% end %>
+  </div>
+</div>
+</div>

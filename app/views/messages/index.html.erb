@@ -1,0 +1,25 @@
+<%# <p style="color: green"><%= notice %>
+
+<div class="container">
+<h1>Message <%=  %></h1>
+
+<div class="messages">
+  <ul>
+    <% @messages.each do |message| %>
+      <% if message.sender_id == current_user.id %>
+				<li class="replies">
+					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+					<p><%= message.content.capitalize %></p>
+				</li>
+      <% else %>
+				<li class="sent">
+					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+					<p><%= message.content.capitalize %></p>
+				</li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "form", message: @message %>
+</div>

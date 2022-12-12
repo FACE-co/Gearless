@@ -1,0 +1,33 @@
+<%# <header> %>
+  <div class="w-100 p-3">
+  <% if current_user.present? %>
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
+    <div></div>
+  <% else %>
+    <div class="d-flex flex-wrap align-items-center justify-content-center">
+  <% end %>
+      <div>
+        <a class="logo-text" href= <%= root_path %>>Gearless</a>
+      </div>
+      <% if current_user.present? %>
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if current_user.present? && current_user.avatar.present? %>
+              <%= cl_image_tag current_user.avatar.key, height: 32, width: 32, crop: :fill, class:"profile-pic" %>
+            <% else %>
+              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <% end %>
+          </a>
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href= <%= new_user_gear_path(current_user) %>> Lend some gear</a></li>
+            <li><a class="dropdown-item" href= <%= root_path %>>Borrow some gear</a></li>
+            <li><a class="dropdown-item" href= <%= user_my_gear_path(current_user) %>>My Dashboard</a></li>
+            <li><a class="dropdown-item" href= <%= user_path(current_user) %>>My Profile</a></li>
+            <div class="dropdown-divider"></div>
+            <li><a class="dropdown-item" href= "<%= destroy_user_session_path %>" data-turbo-method="delete">Log Out</a></li>
+          </ul>
+        </div>
+        <% end %>
+    </div>
+  </div>
+<%# </header> %>

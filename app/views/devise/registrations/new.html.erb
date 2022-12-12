@@ -1,0 +1,46 @@
+<div class="container container-small">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
+    data: {turbo: false}) do |f| %>
+
+    <div class="form-inputs">
+      <%= f.input :first_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "first_name", class: 'form-transparent', placeholder: 'John' }%>
+      <%= f.input :last_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "last_name", class: 'form-transparent', placeholder: 'Wick'  }%>
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email", class: 'form-transparent', placeholder: 'johnwick@gmail.com'  }%>
+      <%= f.input :location,
+                  required: true,
+                  input_html: { autocomplete: "location", class: 'form-transparent', placeholder: 'Sydney'  }%>
+      <%= f.input :phone_number,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "phone_number", class: 'form-transparent', placeholder: '0430 123 456'  }%>
+      <%= f.input :description,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "description", class: 'form-transparent' } %>
+      <%= f.input :avatar, as: :file,
+                  input_html: { class: 'form-transparent' } %>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password", class: 'form-transparent', placeholder: '***********'  } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password", class: 'form-transparent'  } %>
+    </div>
+
+    <div class="form-actions mb-3">
+      <%= f.button :submit, "Sign up", class: "button-green w-100" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>``

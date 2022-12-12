@@ -1,0 +1,28 @@
+.form-transparent {
+  width: 100%;
+  // padding: 10px 0;
+  font-size: 23px;
+  color: #2E5E55;
+  border: none;
+  border-bottom: 2px solid #06270A;
+  outline: none;
+  background: transparent;
+  align-self: flex-end;
+  align-self: end;
+  padding-bottom: 12px;
+}
+
+.form-transparent:focus {
+  color: $primary-colors-dark;
+  background-color: transparent;
+}
+
+.text-main {
+  font-family: $body-font;
+  font-size: 50px;
+  text-decoration: none;
+  color:var($primary-colors-dark);
+  border: 2px solid $primary-colors-dark;
+  padding: 20px;
+  margin-bottom: 20px;
+}

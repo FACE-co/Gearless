@@ -1,0 +1,79 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col">
+      <div class="product-tumb">
+          <% if @gear.photos.present? %>
+            <%= cl_image_tag @gear.photos.first.key, crop: :fill, width: 500, height: 350 %>
+          <% else %>
+            <img src="https://images.unsplash.com/photo-1628087235616-4e146afcd061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80" alt="">
+          <% end %>
+        </div>
+      <div style="height: 120px;"></div>
+
+    </div>
+    <div class="col gear-card" >
+      <div class="product-details">
+        <div class="flex-container">
+          <div class="product-catagory"><%= @gear.gear_type %></div>
+          <div class="product-rating"><span>★</span> <%= rand(3.9..5.0).round(1) %></div>
+        </div>
+            <h4><%= @gear.gear_name %></h4>
+            <p>by
+            <a href=<%= user_path(@gear.user) %>><%= @gear.user.first_name %> <%= @gear.user.last_name %></a></p>
+          <div>
+            <p class="product-summary"><%= @gear.summary %> </p>
+          </div>
+          <div>
+            <p class="my-3"style="font-size: 20px; letter-spacing: 1px; line-height: 100%; color: black;">$<span id="price"><%= @gear.price.round() %></span><small> per night</small></p>
+          </div>
+          <div class="my-5">
+            <%= simple_form_for [@gear, @rental], data: {controller: 'flatpickr'} do |form| %>
+              <div class="row justify-content-between flex-wrap">
+                <div class="col-6">
+                  <%= form.input :start_date, label: 'Pick-up date', as: :string, input_html: { data: { flatpickr_target: "startTime" }, class: "form-transparent" } %>
+                </div>
+                <div class="col-6">
+                  <%= form.input :end_date, label: 'Return date', as: :string, input_html: { data: { flatpickr_target: "endTime" }, class: "form-transparent", id: 'end_time'} %>
+                </div>
+              </div>
+                <h3 class="product-price">Total Price: <span id="totalprice">0</span> AUD</h3>
+                <%= form.submit 'Book this gear', onclick: "confirm('Are you sure to book this gear?')", id: "submit",class:"button-green w-100"%>
+            <% end %>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      <div class="container">
+        <div id="allreview">
+          <h2>Reviews</h2>
+          <% if @gear.reviews == [] %>
+          <i style="font-size: 15px; font-weight: 500; line-height: 100%;">Book the gear and be the first to review.</i>
+          <% else %>
+            <ul class="list-group list-group-flush">
+                <% @gear.reviews.each do |review| %>
+                  <li class="list-group-item">
+                  <%= User.find(review.user_id).first_name %>
+                  <%= User.find(review.user_id).last_name %>
+                  <div class="review-rating">
+                  <% review.rating.to_i.times do %>
+                  <label class="rating-color">★</label>
+                  <% end %>
+                  <% review.blank_stars.times do %>
+                  <label>☆</label>
+                  <% end %>
+                  <%= review.message %>
+                  </div>
+                  <div class="row justify-content-between">
+                    <div class="col-10">
+                      <%= review.content %>
+                    </div>
+                  </div>
+                  </li>
+                <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+</div>

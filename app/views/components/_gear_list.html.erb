@@ -1,0 +1,18 @@
+<% gears.each do |gear| %>
+  <div class="gear-info d-flex">
+    <div class="mw-30">
+      <h5><%= gear.gear_type %> </h5>
+      <% if gear.photos.present? %>
+        <%= cl_image_tag gear.photos.first.key, crop: :fill %>
+      <% else %>
+        <img src="https://images.unsplash.com/photo-1628087235616-4e146afcd061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80" alt="">
+      <% end %>
+    </div>
+
+    <div class="d-flex flex-column justify-content-center px-4">
+      <h6>Description:</h6>
+      <p><%= gear.summary %></p>
+      <div><span>★</span> <%= rand(3.9..5.0).round(1) %></div>
+    </div>
+  </div>
+<% end %>

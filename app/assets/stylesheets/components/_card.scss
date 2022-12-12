@@ -1,0 +1,144 @@
+.product-card {
+    // width: 400px;
+    box-shadow: 0 2px 7px #d9d9d9;
+    background: $primary-color-light;
+    padding: 0;
+    margin: 0 auto;
+    margin-bottom: 50px;
+
+    a {
+      text-decoration: none;
+    }
+
+    .product-tumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 250px;
+      padding: 50px;
+      background: $primary-color-light;
+      overflow: hidden;
+      position: relative;
+
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 250px;
+        transition: ease-in-out 0.2s;
+        position: absolute;
+      }
+
+      p {
+        margin-top: 50px;
+        width: fit-content;
+        border: 2px solid $primary-colors-dark;
+        padding: 10px 40px;
+        font-family: $body-font;
+        color: $primary-colors-dark;
+        font-size: 23px;
+        text-decoration: none;
+        background-color: $primary-color-light;
+        z-index: 2;
+        opacity: 0;
+        transition: ease-in-out 0.2s;
+      }
+    }
+
+    .product-catagory {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $green;
+      margin-bottom: 10px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .product-details {
+      padding: 10px 10px 15px 10px;
+      border: 2px dashed #13373179;
+      border-top: none;
+      height: 250px;
+
+
+      .product-summary {
+        text-overflow: clip;
+        height: 75px;
+        overflow: hidden;
+      }
+
+      h4 {
+        font-family: $logo-font;
+        display: block;
+        font-size: 30px;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        color: $primary-colors-dark;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 10px;
+        color: $primary-colors-dark;
+      }
+    }
+
+
+    .product-bottom-details {
+      overflow: hidden;
+    }
+
+    .product-price {
+      font-size: 24px;
+      color: $primary-colors-dark;
+      font-weight: 500;
+      float: left;
+
+      small {
+        font-size: 80%;
+        font-weight: 200;
+        display: inline-block;
+        margin-right: 5px;
+      }
+    }
+    .flex-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      .product-rating {
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #2E5E55;
+        margin-bottom: 10px;
+        font-family: 'JetBrains Mono', monospace;
+
+        span {
+          font-size: 30px;
+          line-height: 12px;
+        }
+      }
+    }
+
+
+    a:hover {
+      img {
+        transform: scale(1.05);
+        filter: grayscale(90%);
+      }
+
+      p {
+        opacity: 1;
+      }
+    }
+}
+
+.line-clamp {
+  text-overflow: ellipsis;
+  /* Needed to make it work */
+  overflow: hidden;
+  white-space: nowrap;
+}

@@ -1,0 +1,20 @@
+<% @user = current_user %>
+<div class="row justify-content-around">
+  <div class="col-4 p-2 text-center">
+  <h5>Rental</h5>
+    <ul>
+    <li><%= @rental.start_date%> to <%= @rental.end_date%></li>
+    <li>Gear type: <%= @rental.gear.gear_type%></li>
+    <li>Summary: <%= @rental.gear.summary%></li>
+    <li>from <%= @rental.gear.user.first_name%></li>
+    </ul>
+  </div>
+<div class="col-6 p-2" id="newreview">
+  <h5>Add your review</h5>
+  <%= simple_form_for [@user, @rental, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating, as: :select, collection: (1..5), required: true, input_html: { data: { controller: "star-rating" } } %>
+  <%= f.submit "Submit", class: "btn btn-success" %>
+  <% end %>
+</div>
+</div>

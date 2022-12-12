@@ -1,0 +1,68 @@
+<div class="container">
+  <h1>All Gears for Rent</h1><br>
+  --------------------------
+  <% @gears.each do |gear| %>
+    <% if gear.user != current_user %>
+      <li>
+        Gear Type:<%= gear.gear_type %> <br>
+        Summary:<%= gear.summary %> <br>
+        Owner:<%= gear.user.first_name %> <br>
+        $<%= gear.price %> <br>
+        <%= link_to "See More", gear_path(gear) %> <br>
+        --------------------------
+      </li>
+    <% end %>
+  <% end %>
+
+  <br>
+  --------------------------
+  <h1>Rentals I have hosted</h1>
+  <%= link_to "View rentals I have hosted", host_show_path(current_user) %> <br>
+  --------------------------
+  <h1>Your Pending/Active Rentals</h1>
+  --------------------------
+  <% @rentals.each do |rental| %>
+
+    <li></li>
+      <strong>Summary:</strong>
+      <br>
+      <%= rental.gear.summary %>
+      <br>
+      --------------------------
+      <br>
+      <strong>Price</strong>
+      <br>
+      Price Per day: <%= rental.price %>
+      <br>
+      Total Price: <%= rental.total %>
+      <br>
+      --------------------------
+      <br>
+      <strong>Dates</strong>
+      <br>
+      Start Date:<%= rental.start_date %>
+      <br>
+      End Date:<%= rental.end_date %>
+      <br>
+      --------------------------
+      <br>
+      Status:
+      <%= rental.status ? "Confirmed" : "Pending confirmation"%>
+      <br>
+      --------------------------
+      <br>
+    </li>
+  <% end %> <br>
+  <%= link_to "View all rentals", user_rentals_path(current_user) %>
+  <br>
+  --------------------------
+
+  <br>
+
+
+  <h3>Currently logged in as:</h3>
+  <p><%= @user.first_name %> <%= @user.last_name %></p>
+  <p><%= @user.email %></p>
+</div>
+<div>
+</div>

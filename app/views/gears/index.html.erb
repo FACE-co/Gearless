@@ -1,0 +1,15 @@
+<h1>All Gears for Rent</h1><br>
+  --------------------------
+  <% @gears.each do |gear| %>
+    <% if gear.user != current_user %>
+      <li>
+        Gear Type:<%= gear.gear_type %> <br>
+        Summary:<%= gear.summary %> <br>
+        Owner:<%= gear.user.first_name %> <br>
+        $<%= gear.price %> <br>
+        <%= link_to "See More", gear_path(gear) %> <br>
+        <%= link_to "book this gear", new_gear_rental_path(gear) %> <br>
+        --------------------------
+      </li>
+    <% end %>
+  <% end %>

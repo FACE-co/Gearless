@@ -1,0 +1,123 @@
+.personal-product-card {
+  display: flex;
+  width: 450px;
+  box-shadow: 0 2px 7px #d9d9d9;
+  background: $primary-color-light;
+  padding: 0;
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .personal-product-tumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 200px;
+    padding: 50px;
+    background: $primary-color-light;
+    overflow: hidden;
+    position: relative;
+
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      transition: ease-in-out 0.2s;
+      position: absolute;
+    }
+
+    p {
+      margin-top: 50px;
+      width: fit-content;
+      border: 2px solid $primary-colors-dark;
+      padding: 10px 40px;
+      font-family: $body-font;
+      color: $primary-colors-dark;
+      font-size: 23px;
+      text-decoration: none;
+      background-color: $primary-color-light;
+      z-index: 2;
+      opacity: 0;
+      transition: ease-in-out 0.2s;
+    }
+  }
+
+  .personal-product-catagory {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $green;
+    margin-bottom: 10px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .personal-product-details {
+    padding: 15px 10px;
+    border: 2px dashed #2e5e553b;
+    border-top: none;
+    height: 265px;
+
+
+    .personal-product-summary {
+      text-overflow: clip;
+      height: 50px;
+      overflow: hidden;
+    }
+
+    h4 {
+      font-family: $logo-font;
+      display: block;
+      font-size: 30px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      color: $primary-colors-dark;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 22px;
+      margin-bottom: 10px;
+      color: $primary-colors-dark;
+    }
+  }
+
+
+  .personal-product-bottom-details {
+    overflow: hidden;
+
+    div {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  .personal-product-price {
+    font-size: 24px;
+    color: $primary-colors-dark;
+    font-weight: 500;
+
+    small {
+      font-size: 80%;
+      font-weight: 200;
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  a:hover {
+    img {
+      transform: scale(1.05);
+      filter: grayscale(90%);
+    }
+
+    p {
+      opacity: 1;
+    }
+  }
+}

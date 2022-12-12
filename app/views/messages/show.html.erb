@@ -1,0 +1,8 @@
+<%= render @message %>
+
+<div>
+  <%= link_to "Edit this message", edit_message_path(@message) %> |
+  <%= link_to "Back to messages", user_messages_path(@user) %>
+
+  <%= button_to "Destroy this message", @message, method: :delete %>
+</div>
