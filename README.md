@@ -15,7 +15,7 @@ https://www.gearless.dev
 
 <h3>Currently working on:</h3>
 <ul>
-<li>Making website more responsive to more desktop sizes</li>
+<li>Making website responsive - Currently only responsive on Desktop</li>
 </ul>
 
 <strong> Farah Masri - </strong>
